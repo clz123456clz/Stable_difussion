@@ -331,7 +331,7 @@ class UNET_OutputLayer(nn.Module):
         return x
 
 
-class Difussion(nn.Module):
+class Diffusion(nn.Module):
     def __init__(self):
         super().__init__()
         self.time_embedding = TimeEmbedding(320)
