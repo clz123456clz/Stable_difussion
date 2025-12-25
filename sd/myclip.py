@@ -16,6 +16,8 @@ class CLIPEmbedding (nn.Module):
         # (Batch_Size, Seq_Len) -> (Batch_Size, Seq_Len, Dim)
         x += self.position_embedding
 
+        return x
+
 class CLIPLayer(nn.Module):
     def __init__(self, n_head: int, n_embd: int):
         super().__init__()

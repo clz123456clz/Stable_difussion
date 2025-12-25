@@ -200,7 +200,7 @@ class SwitchSequential(nn.Sequential):
                 x = layer(x)
         return x
     
-class UNET (nn.module):
+class UNET (nn.Module):
     def __init__(self):
         super().__init__()
         self.encoders = nn.ModuleList([
