@@ -110,6 +110,7 @@ def generate(
 
             to_idle(encoder)
         else :
+            # If we're doing text-to-image, start with random noise. 
             # (Batch_Size, 4, Latents_Height, Latents_Width)
             latents = torch.randn(latents_shape, generator=generator, device=device)
 
@@ -137,6 +138,7 @@ def generate(
                 model_output = cfg_scale * (output_cond - output_uncond) + output_uncond
 
             # (Batch_Size, 4, Latents_Height, Latents_Width) -> (Batch_Size, 4, Latents_Height, Latents_Width)
+            # Remove noise predicted by the UNET
             latents = sampler.step(timestep, latents, model_output)
 
         to_idle(diffusion)
